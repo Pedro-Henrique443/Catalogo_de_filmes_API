@@ -22,6 +22,30 @@ class MovieController{
         }
     }
 
+    public function getMovieById()
+{
+    $id = $_GET['id'] ?? null;
+
+    if ($id) {
+        $movie = new Movie();
+        $movie->id = $id;
+        $result = $movie->getMovieById();
+
+        if ($result) {
+            header('Content-Type: application/json', true, 200);
+            echo json_encode($result);
+        } else {
+            header('Content-Type: application/json', true, 404);
+            echo json_encode(["message" => "Filme não encontrado"]);
+        }
+    } else {
+        header('Content-Type: application/json', true, 400);
+        echo json_encode(["message" => "ID inválido"]);
+    }
+}
+
+
+
     public function addMovie()
     {
         $data = json_decode(file_get_contents("php://input"));

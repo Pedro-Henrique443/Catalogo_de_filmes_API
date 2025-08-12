@@ -10,8 +10,12 @@ $method = $_SERVER['REQUEST_METHOD'];
 switch ($method) 
 {
     case 'GET':
-        $movieController->getMovies();
-        break;
+        if (isset($_GET['id']) && !empty($_GET['id'])) {
+        $movieController->getMovieById(); 
+    } else {
+        $movieController->getMovies(); 
+    }
+    break;
     case 'POST':
         $movieController->addMovie();
         break;

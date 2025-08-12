@@ -28,6 +28,17 @@ class Movie
     }
 
     
+public function getMovieById()
+{
+    $sql = "SELECT * FROM movies WHERE id = :id";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bindParam(":id", $this->id, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
+
+    
     public function addMovie()
     {
         $sql = "INSERT INTO movies (name, genre, year_launch) VALUES (:name, :genre, :year_launch)";
