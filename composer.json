@@ -1,0 +1,26 @@
+{
+    "name": "pedrohenrique/api",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Pedrohenrique\\Api\\": "Catalogo_de_filmes_API/",
+            "Controller\\": "Controller/",
+            "Model\\": "Model/"
+
+        },
+        "files": [
+            "Config/Configuration.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Pedro-Henrique443",
+            "email": "dosanjospedro66@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=8.0",
+        "ext-mbstring": "*"
+    }
+}
