@@ -10,12 +10,19 @@ $method = $_SERVER['REQUEST_METHOD'];
 switch ($method) 
 {
     case 'GET':
-        if (isset($_GET['id']) && !empty($_GET['id'])) {
-        $movieController->getMovieById(); 
+    if (isset($_GET['id'])) {
+        $movieController->getMovieById();
+    } elseif (isset($_GET['name'])) {
+        $movieController->getMoviesByName();
+    } elseif (isset($_GET['year_launch'])) {
+        $movieController->getMoviesByYear();
+    } elseif (isset($_GET['genre'])) {
+        $movieController->getMoviesByGenre();
     } else {
-        $movieController->getMovies(); 
+        $movieController->getMovies();
     }
     break;
+
     case 'POST':
         $movieController->addMovie();
         break;
