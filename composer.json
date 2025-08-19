@@ -21,6 +21,7 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=8.0",
-        "ext-mbstring": "*"
+        "ext-mbstring": "*",
+        "firebase/php-jwt": "dev-main"
     }
 }
